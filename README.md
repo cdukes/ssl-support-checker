@@ -5,9 +5,11 @@ This package contains two functions to a) check whether a URL's domain supports 
 ```
 import checker "github.com/cdukes/duckduckgo-smarter-encryption-checker"
 
-log.Print( checker.SupportsSSL("http://example.com") ) // false
-log.Print( checker.SupportsSSL(url) ) // true
+u, _ := url.Parse("http://example.com")
+log.Print(checker.SupportsSSL(u)) // false
+log.Print(checker.MaybeUpgradeURL("http://example.com")) // http://example.com
 
-log.Print( checker.MaybeUpgradeURL("http://example.com") ) // http://example.com
-log.Print( checker.MaybeUpgradeURL(url) ) // https://google.com
+u, _ = url.Parse("http://google.com")
+log.Print(checker.SupportsSSL(u)) // true
+log.Print(checker.MaybeUpgradeURL("http://google.com"))  // https://google.com
 ```
