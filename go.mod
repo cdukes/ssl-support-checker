@@ -1,3 +1,3 @@
-module github.com/cdukes/duckduckgo-smarter-encryption-checker
+module github.com/cdukes/ssl-support-checker
 
 go 1.13
