@@ -79,5 +79,7 @@ func MaybeUpgradeURL(s string) string {
 		return s
 	}
 
-	return strings.Replace(s, "http://", "https://", 1)
+	parts.Scheme = "https"
+
+	return parts.String()
 }
